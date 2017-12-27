@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var expressHbs = require('express-handlebars');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 
@@ -16,6 +17,8 @@ var app = express();
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 
 app.set('view engine', 'hbs');
+
+mongoose.connect('localhost:27017/shopping');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
